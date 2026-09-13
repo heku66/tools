@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="个人开发者工具箱：JSON、Base64、UUID、JWT、正则等常用工具，纯前端本地处理。" />
+  <title>个人工具箱</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"></div>
+
+  <div class="app">
+    <aside class="sidebar">
+      <header class="brand">
+        <p class="brand-mark">Toolbox</p>
+        <h1>个人工具箱</h1>
+        <p class="brand-sub">数据只在浏览器本地处理</p>
+      </header>
+
+      <label class="search-wrap" for="tool-search">
+        <span class="sr-only">搜索工具</span>
+        <input id="tool-search" type="search" placeholder="搜索工具…" autocomplete="off" />
+      </label>
+
+      <nav class="nav" id="tool-nav" aria-label="工具列表"></nav>
+
+      <footer class="sidebar-foot">
+        <span>纯静态 · 可 GitHub 推送部署</span>
+      </footer>
+    </aside>
+
+    <main class="main">
+      <header class="panel-head">
+        <div>
+          <p class="eyebrow" id="tool-eyebrow">工具</p>
+          <h2 id="tool-title">加载中…</h2>
+          <p class="lede" id="tool-desc"></p>
+        </div>
+        <button type="button" class="ghost-btn" id="btn-clear" title="清空当前工具输入">清空</button>
+      </header>
+
+      <section class="panel-body" id="tool-panel"></section>
+    </main>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
