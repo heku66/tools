@@ -1,0 +1,22 @@
+name: Sync on DOM云
+'on':
+  workflow_dispatch: {}
+  push:
+    branches:
+      - main
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Invoke deployment hook
+        uses: distributhor/workflow-webhook@v3
+        env:
+          webhook_url: https://my.domcloud.co/api/githubdeploy
+          webhook_secret: ${{ secrets.WEBHOOK_SECRET }}
+          webhook_auth: ${{ secrets.WEBHOOK_AUTH }}
+          data: >-
+            {"source":"https://github.com/heku66/tools.git","features":["node
+            lts"],"nginx":{"root":"public_html/public","passenger":{"enabled":"on","app_env":"production","app_start_command":"env
+            PORT=$PORT node app.js"}},"commands":["NPM=`which npm`","$NPM
+            install","[ -f .env ] || touch .env"]}
